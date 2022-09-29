@@ -32,4 +32,16 @@ public class Bank {
 		this.nome = nome;
 	}
 	
+	@Post(router = "depositar")
+	public void depositar(int numconta, float valor) {
+		float atual = contas.get(numconta);
+		contas.put(numconta, atual+valor)
+	}
+	
+	@Get(router = "saldo")
+	public float saldo(int numconta) {
+		return contas.get(numconta);
+	}
+	
+	
 }
