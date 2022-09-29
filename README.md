@@ -1,92 +1,113 @@
 # ufrn-2022.2-MiddlewareBank
 
+Programação Distribuída
 
+# Pacotes Java JDK 8
+Fonte: https://docs.oracle.com/javase/8/docs/api/index.html
 
-## Getting started
+# App Diagrams.Net
+Fonte: [AppDiagrams.Net](https://app.diagrams.net/)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+# TUTORIAL GIT HUB
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Documentação:  
+Fonte: https://docs.github.com/pt - GitHub Docs  
+Fonte: https://git-scm.com/book/pt-br/v1/Primeiros-passos-Sobre-Controle-de-Vers%C3%A3o  
+Fonte: https://git-scm.com/book/pt-br/v1/Primeiros-passos-Configura%C3%A7%C3%A3o-Inicial-do-Git  
+Fonte: https://www.youtube.com/watch?v=udw3J335ZHo (Curso Git - LCM Aquino)  
 
-## Add your files
+## Configuração inicial do Git:  
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Criar novos usuário/email (identidade):  
 
 ```
-cd existing_repo
-git remote add origin https://projetos.imd.ufrn.br/aulas-2022.2/ufrn-2022.2-middlewarebank.git
-git branch -M main
-git push -uf origin main
+git config --global user.email "you@example.com"`
+git config --global user.name "Your Name"
 ```
 
-## Integrate with your tools
+**Obs.1**: --global: caso vc precise definir outros usuarios/emails para outros projetos não precisa digitar --global.  
+**Obs.2**: Usando --global, basta fazer isso apenas uma vez, pois o Git usará esta identidade toda vez que o sistema for usado.  
+**Obs.3**: A identidade deverá ser criada após instalar o o Git (todos commits usam este usuário).  
 
-- [ ] [Set up project integrations](https://projetos.imd.ufrn.br/aulas-2022.2/ufrn-2022.2-middlewarebank/-/settings/integrations)
+### Editor padrão:  
+. Para configurar o editor de texto padrão que será utilizado no Git:  
 
-## Collaborate with your team
+```
+git config --global <nome_editor>
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+. **Ex.**: core.editor emacs ou core.editor="C:\\Program Files\\Sublime Text 3\\subl.exe" -w  
 
-## Test and Deploy
+(...)
 
-Use the built-in continuous integration in GitLab.
+## Obter um repositório/projeto git:  
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+(...)  
 
-***
+### Segunda forma (baixar/clonar do git para o pc):  
+. No seu pc, abra o terminal e vá até a pasta que queira baixar o repositório  
+. Copiar a url do repositório. Ex.: https://github.com/Elildes/ufrn-2019.1-itp-projeto.git  
+. No PC (programa do git já instalado):  
 
-# Editing this README
+`com o terminal`, entre na pasta de destino do reporitório.  
+`git clone <url do repositório>`(salva uma pasta com o mesmo nome do projeto. Ex.: ufrn-2019.1-itp-projeto (nome da pasta criada)  
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+**Obs.01**: após o comando acima, o repositório do projeto será baixado dentro da pasta onde o terminal está acessando.  
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+**Obs.02**: caso queira clonar o repositório em um diretório diferente do projeto, especifique esse diretório conforme abaixo:  
+`git clone https://github.com/Elildes/ufrn-2019.1-itp-projeto.git projeto` (o repositório será salvo na pasta projeto)  
 
-## Name
-Choose a self-explaining name for your project.
+**Obs.03**: Se não tiver clonado um repositório existente e quer conectar seu repositório a um
+servidor remoto, você deve adicioná-lo com:  
+`git remote add origin <servidor>`  
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+**Obs.04**:  
+`git fork <URL do github>`  (baixa o repositório de terceiros).????????  
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Gravando alterações no repositório (Adicionar/enviar ao GitHub e enviar atualizações):  
+`git add <file.ext>` (adiciona um arquivo) ou:  
+`git add *` (todos arquivos)  
+`git commit -m "Mensagem xxx"` (empacota as alterações feitas no repositório baixado)  
+`git remote add origin <URL do Git>` (se tiver dentro do seu git não precisa)  
+`git push` (envia as alterações feitas ao repositório remoto), ou:  
+`git push -u origin master` (alteracões estão no head local: enviar ao repositório remoto)  
+... irá pedir senha/usuário (quando for feito o projeto, clonado não pede senha???)  
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+`pull request` (requisição de alteração de arquivo: solicitar ao dono do perfil)  
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Diversos:  
+`git status` (verifica o status dos arquivos: quais arquivos não foram enviados ao repositório...)  
+`git diff [chave]` (ver diferenças entre commits: chave é o rash, apenas 7 char)  
+`git pull` (atualiza o repositório no pc: fazer isto logo após abrir o projeto monitorado)  
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Verificar as configirações:  
+**Ex.**: mostra todas as configurações:  
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+```
+git config --list
+user.name=Scott Chacon
+user.email=schacon@gmail.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
+```
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Verificar nome de usuário (identidade):  
+```
+git config user.name
+```
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Verificar e-mail do usuário (identidade):  
+```
+git config user.mail
+```
+**Obs**.: `git config {key}`  
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Histórico de commits (listar todos os commits):  
+`gitk`  (ferramenta gráfica)  
+`git log`  
+`git log -p -2` (mostra o diff introduzido em cada commit ref. aos 2 últimos commits)  
+`git log stat` (lista arquivos: quais foram modificados, quantos modificados e quantas linhas foram adicionadas/removidas)  
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
