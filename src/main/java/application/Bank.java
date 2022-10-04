@@ -2,6 +2,11 @@ package main.java.application;
 
 import java.util.HashMap;
 
+import main.java.middleware.annotations.Get;
+import main.java.middleware.annotations.Post;
+import main.java.middleware.annotations.RequestMap;
+import main.java.middleware.annotations.JSONObject;
+
 //@NoArgsConstructor
 
 @RequestMap(router = "/banco")
@@ -35,12 +40,19 @@ public class Bank {
 	@Post(router = "depositar")
 	public void depositar(int numconta, float valor) {
 		float atual = contas.get(numconta);
-		contas.put(numconta, atual+valor)
+		contas.put(numconta, atual+valor);
 	}
 	
 	@Get(router = "saldo")
 	public float saldo(int numconta) {
 		return contas.get(numconta);
+	}
+	
+	@Get JSONObject saldo(JSONObject jsonObject) throws Throwable {
+		// modelo objeto JSon
+		
+		return jsonObject;
+		
 	}
 	
 	
