@@ -9,9 +9,10 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-		Bank bb = new Bank();
-		Finance server = new Finance();
-		
+		BankMiddleware bb = new BankMiddleware();	// instância da classe de negócio
+		Finance server = new Finance();				// instância do middleware
+		server.addMethods(bb);		// adiciona anotações de métodos e salva no hashmaps
+		server.start(7080);			// inicia o middleware na porta correta.
 		
 		
 		// Testes: criar conta

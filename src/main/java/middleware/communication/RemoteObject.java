@@ -8,13 +8,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class RemoteObject {
 
-	// Hashmap salva métodos get, post, put e delete
+	// Hashmap salva métodos get, post, put e delete:
 	private static ConcurrentHashMap<Object, Method> methodsGet = new ConcurrentHashMap<>();
-	// Hashmap to save post methods
 	private static ConcurrentHashMap<Object, Method> methodsPost = new ConcurrentHashMap<>();
-	// Hashmap to save put methods
 	private static ConcurrentHashMap<Object, Method> methodsPut = new ConcurrentHashMap<>();
-	// Hashmap to save delete methods
 	private static ConcurrentHashMap<Object, Method> methodsDelete = new ConcurrentHashMap<>();
 
 	
