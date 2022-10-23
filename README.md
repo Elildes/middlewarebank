@@ -32,6 +32,7 @@ Tal  implementação irá valer 4,0 pontos e seguirá os mesmos critérios menci
 
 # Dependências
 
-[Criar projeto em Maven](https://www.devmedia.com.br/introducao-ao-maven/25128#2)  
-[Instalar a biblioteca 'lombok']
+[Criar projeto em Maven - site DevMedia](https://www.devmedia.com.br/introducao-ao-maven/25128#2)  
+[Instalar o pacote 'lombok' - Documentação](https://projectlombok.org/api/lombok/package-summary)  
+
 

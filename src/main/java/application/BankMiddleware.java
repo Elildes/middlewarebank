@@ -1,12 +1,18 @@
 package main.java.application;
 
 import org.json.JSONObject;
-
+import lombok.NoArgsConstructor;
 import main.java.middleware.annotations.Get;
 import main.java.middleware.annotations.Post;
 import main.java.middleware.annotations.Put;
 import main.java.middleware.annotations.Delete;
 import main.java.middleware.annotations.RequestMap;
+
+/*
+ * Implentada usando as anotações implementados pelo middleware.
+ */
+
+@NoArgsConstructor
 
 @RequestMap(router = "/fin")
 public class BankMiddleware {
@@ -16,8 +22,14 @@ public class BankMiddleware {
 	public JSONObject add(JSONObject jsonObject) throws Throwable {
 
 		// Teste: pegar variável JSon 
-		Double var = jsonObject.getDouble(key: "var1");
-		String str = jsonObject.getString(null);
+		Double var = jsonObject.getDouble("var1");
+		System.out.println("\nDEBUG: O valor do var = " + var);
+
+		float a = jsonObject.getFloat("var2");
+		System.out.println("\nDEBUG: O valor de float = " + a);
+
+		//String str = jsonObject.getString(null);
+		
 		
 		return jsonObject;
 	}
@@ -80,3 +92,49 @@ public class BankMiddleware {
 		return jsonObject;
 	}	
 }
+
+
+
+// Testes: criar conta
+//BankDB dbBB = BankDB.getInstance();
+
+/*		Bank bb = new Bank();
+bb.setAgencia("1234");
+bb.setNumero("12000");
+dbBB.addBank(bb);
+*/
+
+// Teste: deposita
+/*		System.out.println("\nSaldo anterior de banco: R$ " + dbBB.saldo("1234", "12000"));
+dbBB.deposita("1234", "12000", 1500.00);
+System.out.println("Saldo atual de banco: R$ " + dbBB.saldo("1234", "12000"));
+*/
+
+//Teste: saca
+/*		System.out.println("\nSaldo anterior de banco: R$ " + dbBB.saldo("1234", "12000"));
+dbBB.saca("1234", "12000", 1000.00);
+System.out.println("Saldo atual de banco: R$ " + dbBB.saldo("1234", "12000"));
+*/		
+
+// Testes: criar outra conta
+//dbBB = BankDB.getInstance();
+
+/*		Bank bdn = new Bank();
+bdn.setAgencia("5678");
+bdn.setNumero("13000");
+dbBB.addBank(bdn);
+*/
+
+// Testes: transfere
+/*		dbBB = BankDB.getInstance();
+System.out.println("\nSaldo anterior de banco: R$ " + dbBB.saldo("1234", "12000"));
+System.out.println("\nSaldo anterior de banco: R$ " + dbBB.saldo("5678", "13000"));
+dbBB.transfere("1234", "12000", "5678", "13000", 400.00);
+System.out.println("Saldo atual de banco: R$ " + dbBB.saldo("1234", "12000"));
+System.out.println("Saldo atual de banco: R$ " + dbBB.saldo("5678", "13000"));
+*/		
+
+// Testes: listar bancos
+/*		dbBB = BankDB.getInstance();
+System.out.println(dbBB.listarBancos());
+*/
