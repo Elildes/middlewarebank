@@ -5,6 +5,29 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>MiddlewareBank</name>
   <description>Projeto de um Midlleware para um Sistema Bancário</description>
+
+  <properties>
+      <maven.compiler.source>17</maven.compiler.source>
+      <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+	<dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
+	</dependencies>
+        
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
