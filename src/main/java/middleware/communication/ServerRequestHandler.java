@@ -42,7 +42,7 @@ public class ServerRequestHandler {
             	System.out.println("Aguardando por requisições de clientes...");
                 Socket remote = serverSocket.accept();
                 System.out.println("Conecção realizada!");
-                //executor.execute(new ServerHandler(remote));
+                executor.execute(new ServerHandler(remote));
                 System.out.println("\nDEBUG: método run() da classe ServerRequestHandler.");
             }
         } catch (IOException e) {
@@ -59,10 +59,14 @@ public class ServerRequestHandler {
     @AllArgsConstructor
     private static class ServerHandler implements Runnable {
     	
-        private final Socket socket;
+        private Socket socket = new Socket();	// private final Socket ??
         private final Marshaller marshaller = new Marshaller();
         
-        @Override
+        public ServerHandler(Socket remote) {
+			this.socket = remote;
+		}
+
+		@Override
         public void run() {        	
         	//        	
         }
