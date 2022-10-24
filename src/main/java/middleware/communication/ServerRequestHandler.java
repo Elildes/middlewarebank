@@ -43,7 +43,7 @@ public class ServerRequestHandler {
                 Socket remote = serverSocket.accept();
                 System.out.println("Conecção realizada!");
                 executor.execute(new ServerHandler(remote));
-                System.out.println("\nDEBUG: método run() da classe ServerRequestHandler.");
+                //System.out.println("\nDEBUG: método run() da classe ServerRequestHandler.");
             }
         } catch (IOException e) {
         	System.out.println("ERRO: problemas ao iniciar o Server Request Handler!");
@@ -65,25 +65,56 @@ public class ServerRequestHandler {
         public ServerHandler(Socket remote) {
 			this.socket = remote;
 		}
-
+        
 		@Override
-        public void run() {        	
-        	//        	
+        public void run() {  
+			
+            try {
+				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				
+				//String s = null;
+				//while ((s=in.readLine())!=null) {
+				
+				String line;
+//				while ((line = in.readLine()) != null) {
+//				    System.out.println(line);
+//				    
+//				    
+//				}
+//					
+				Marshaller ml = new Marshaller();
+				ml.Unmarshall(in);
+					
+					
+				//}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            try {
+				BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+           
+        	// 
         }
         
         // Recupera e executa os comandos recebidos dos cliente.
-        private ResponseMessage handleRequest(InternMessage internMessage){
-            try {
-            	Invoker inv = new Invoker();
-                return inv.invokeRemoteObject(internMessage);
-            } catch (Exception e) {
-            	System.out.println("Erro ao recuperar dados do pacote recebido!");
-				//JSONObject response = new JSONObject();
-				//response.append("Error: ", "There was an error receiving the package.");
-				//return new ResponseMessage("500", "Internal Server Error", response.toString());
-				e.getStackTrace();
-			}
-        }        
+//        private ResponseMessage handleRequest(InternMessage internMessage){
+//            try {
+//            	Invoker inv = new Invoker();
+//                return inv.invokeRemoteObject(internMessage);
+//            } catch (Exception e) {
+//            	System.out.println("Erro ao recuperar dados do pacote recebido!");
+//				//JSONObject response = new JSONObject();
+//				//response.append("Error: ", "There was an error receiving the package.");
+//				//return new ResponseMessage("500", "Internal Server Error", response.toString());
+//				e.getStackTrace();
+//			}
+//        }        
     }
 	
 }
