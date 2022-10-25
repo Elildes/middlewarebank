@@ -3,6 +3,7 @@ package main.java.middleware.communication;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.json.JSONObject;
@@ -67,54 +68,46 @@ public class ServerRequestHandler {
 		}
         
 		@Override
-        public void run() {  
+        public void run(){  
 			
             try {
+            	ArrayList<String> campos = new ArrayList();
 				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				
-				//String s = null;
-				//while ((s=in.readLine())!=null) {
-				
-				String line;
-//				while ((line = in.readLine()) != null) {
-//				    System.out.println(line);
-//				    
-//				    
-//				}
-//					
-				Marshaller ml = new Marshaller();
-				ml.Unmarshall(in);
-					
-					
-				//}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            try {
 				BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+				
+				ArrayList<String> resposta = new ArrayList<String>();
+
+				
+				
+				Marshaller ml = new Marshaller();
+				
+				campos = ml.unmarshall(in);
+				
+				//System.out.println("SUCESSO");
+				
+				System.out.println("CAMPOS");
+				System.out.println(campos.get(1));
+					
+				
+				Invoker invok = new Invoker();
+				
+				resposta = invok.invokar(campos);
+				
+				String httpResponse = marshaller.marshall(resposta);
+                out.write(httpResponse);
+                
+                out.close();
+                in.close();
+                socket.close();
+					
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            
-           
-        	// 
+
         }
-        
-        // Recupera e executa os comandos recebidos dos cliente.
-//        private ResponseMessage handleRequest(InternMessage internMessage){
-//            try {
-//            	Invoker inv = new Invoker();
-//                return inv.invokeRemoteObject(internMessage);
-//            } catch (Exception e) {
-//            	System.out.println("Erro ao recuperar dados do pacote recebido!");
-//				//JSONObject response = new JSONObject();
-//				//response.append("Error: ", "There was an error receiving the package.");
-//				//return new ResponseMessage("500", "Internal Server Error", response.toString());
-//				e.getStackTrace();
-//			}
-//        }        
+            
     }
 	
 }
