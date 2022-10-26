@@ -54,6 +54,8 @@ public class RemoteObject {
 	// retorna um array list com código HTTP, mensagem HTTP e Conteúdo
 	public static ArrayList<String> instanciate(String chave, JSONObject json) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 
+		ArrayList<String> retornoError = new ArrayList<String>();
+
 
 		if(methodsPost.containsKey(chave)){
 			ArrayList<String> retorno = new ArrayList<String>();
@@ -67,33 +69,52 @@ public class RemoteObject {
 			return retorno;
 			
 			}
-//		
-//		if(methodsGet.containsKey(chave)){
-//			ArrayList<String> retorno = new ArrayList<String>();
-//			Method metodo = methodsPost.get(chave);
-//			Class<?> clazz = metodo.getDeclaringClass();
-//			Object instance = clazz.getDeclaredConstructor().newInstance();
-//			JSONObject obj = (JSONObject) metodo.invoke(instance, json);
-//			retorno.add("200");
-//			retorno.add("Sucesso");
-//			retorno.add(obj.toString());
-//			return retorno;
-//			
-//			}
-		
-		//complete
+		if(methodsGet.containsKey(chave)){
+			ArrayList<String> retornoGet = new ArrayList<String>();
+			Method metodo = methodsGet.get(chave);
+			Class<?> clazz = metodo.getDeclaringClass();
+			Object instance = clazz.getDeclaredConstructor().newInstance();
+			JSONObject obj = (JSONObject) metodo.invoke(instance, json);
+			retornoGet.add("200");
+			retornoGet.add("Sucesso");
+			retornoGet.add(obj.toString());
+			return retornoGet;
+			
+			}
 		
 		
+		if(methodsPut.containsKey(chave)){
+			ArrayList<String> retornoPut = new ArrayList<String>();
+			Method metodo = methodsPut.get(chave);
+			Class<?> clazz = metodo.getDeclaringClass();
+			Object instance = clazz.getDeclaredConstructor().newInstance();
+			JSONObject obj = (JSONObject) metodo.invoke(instance, json);
+			retornoPut.add("200");
+			retornoPut.add("Sucesso");
+			retornoPut.add(obj.toString());
+			return retornoPut;
+			
+			}
 		
+		if(methodsDelete.containsKey(chave)){
+			ArrayList<String> retornoDelete = new ArrayList<String>();
+			Method metodo = methodsDelete.get(chave);
+			Class<?> clazz = metodo.getDeclaringClass();
+			Object instance = clazz.getDeclaredConstructor().newInstance();
+			JSONObject obj = (JSONObject) metodo.invoke(instance, json);
+			retornoDelete.add("200");
+			retornoDelete.add("Sucesso");
+			retornoDelete.add(obj.toString());
+			return retornoDelete;
+			
+			}
 		
+		retornoError.add("500");
+		retornoError.add("Falhou");
+		retornoError.add("Falhou a mensagem");
 		
-		
-		return null;
-		
-		
+		return retornoError;
 
-		//ArrayList<String> array = new ArrayList<String>();
-		
 }
 	
 }

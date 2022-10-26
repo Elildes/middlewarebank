@@ -13,12 +13,8 @@ public class Marshaller {
 	public String marshall(ArrayList<String> resposta) throws IOException {
 		
         StringBuilder httpResponse = new StringBuilder();
-        httpResponse.append("HTTP/1.1 ");
-        httpResponse.append(resposta.get(0));
-        httpResponse.append(" ");
-        httpResponse.append(resposta.get(1));
-        httpResponse.append("\r\nUser-Agent: Autumn\r\nContent-Type: application/json\r\nContent-Length:");
-        httpResponse.append(resposta.get(2).getBytes().length);
+        httpResponse.append("HTTP/1.1 "+resposta.get(0)+" "+resposta.get(1));
+        httpResponse.append("\r\nServer: Finnance\r\nContent-Type: application/json; charset=iso=8859=1\r\nContent-Length:"+resposta.get(2).getBytes().length);
         httpResponse.append("\r\n\r\n");
         httpResponse.append(resposta.get(2));
         
