@@ -55,7 +55,9 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{1000:3300}&#xd;
+                <stringProp name="Argument.value">{&quot;var1&quot;:300, &quot;var2&quot;:500}&#xd;
+&#xd;
+&#xd;
 &#xd;
 &#xd;
 </stringProp>
@@ -67,7 +69,7 @@
           <stringProp name="HTTPSampler.port">7080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/fin/sac</stringProp>
+          <stringProp name="HTTPSampler.path">/fin/add</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

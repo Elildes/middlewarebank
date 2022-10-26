@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
 public class Marshaller {
 	
 	
@@ -33,7 +35,8 @@ public class Marshaller {
 	public ArrayList<String> unmarshall(BufferedReader in) throws IOException {
 		String method = "";
 		String route = "";
-		String body = "";
+		String body;
+		JSONObject jbody;
 		ArrayList<String> contents = new ArrayList<String>();
 		String line;
 		while ((line = in.readLine()) != null) {
@@ -52,7 +55,8 @@ public class Marshaller {
 		
         // read body
 		body = in.readLine();
-	
+		
+			
 	    contents.add(method);
 	    contents.add(route);
 	    contents.add(body);

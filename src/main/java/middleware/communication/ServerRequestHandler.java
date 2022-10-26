@@ -1,6 +1,7 @@
 package main.java.middleware.communication;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -83,17 +84,25 @@ public class ServerRequestHandler {
 				
 				campos = ml.unmarshall(in);
 				
-				//System.out.println("SUCESSO");
-				
-				System.out.println("CAMPOS");
-				System.out.println(campos.get(1));
-			
+				System.out.println("\n");
+				System.out.println("Metodo: "+ campos.get(0));
+				System.out.println("Rota: "+ campos.get(1));
+				System.out.println("Body: "+ campos.get(2));
+
+
+					
 				
 				Invoker invok = new Invoker();
 				
+				// campos é um request
+				// resposta é uma String/response
 				resposta = invok.invokar(campos);
 				
+
+				
 				String httpResponse = marshaller.marshall(resposta);
+				
+				System.out.println(httpResponse);
                 out.write(httpResponse);
                 
                 out.close();
@@ -102,6 +111,24 @@ public class ServerRequestHandler {
 					
 				
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
