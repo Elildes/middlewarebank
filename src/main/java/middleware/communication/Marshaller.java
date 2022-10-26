@@ -57,11 +57,6 @@ public class Marshaller {
 	    contents.add(route);
 	    contents.add(body);
 	    
-<<<<<<< HEAD
-=======
-	    //System.out.println(contents);
-	    
->>>>>>> acerto_vitor-ultimo
 	    
 	    return contents;
 
