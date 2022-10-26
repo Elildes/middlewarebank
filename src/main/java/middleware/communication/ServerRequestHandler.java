@@ -82,6 +82,14 @@ public class ServerRequestHandler {
 				Marshaller ml = new Marshaller();
 				
 				campos = ml.unmarshall(in);
+<<<<<<< HEAD
+=======
+				
+				//System.out.println("SUCESSO");
+				
+				System.out.println("CAMPOS");
+				System.out.println(campos.get(1));
+>>>>>>> acerto_vitor-ultimo
 					
 				
 				Invoker invok = new Invoker();
