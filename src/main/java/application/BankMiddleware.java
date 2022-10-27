@@ -175,6 +175,13 @@ public class BankMiddleware {
 		
 		// pegar variável JSon: body = ???
 		
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		// instância da classe de negócio
 		BankDB dbBanco = BankDB.getInstance();
 		dbBanco.getBanco().clear();
