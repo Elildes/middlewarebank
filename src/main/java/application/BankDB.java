@@ -30,7 +30,8 @@ public class BankDB {
 		//Teste:
 		System.out.println("\nBanco add com sucesso!" + " Agencia: " + cc.getAgencia() + ", Conta: " + cc.getNumero());		
 	}
-	
+
+/*
 	public void deposita(String agencia, String numero, double valor) {
 		Bank cc = new Bank();
 		cc = buscaBank(agencia, numero);
@@ -47,19 +48,21 @@ public class BankDB {
 			System.out.println("Valor igual ou menor que zero!");
 		}
 	}
-
+*/
 	
 	public Double saldo(String agencia, String numero) {
 		Bank cc = new Bank();
-		cc = buscaBank(agencia, numero);
+		//cc = buscaBank(agencia, numero);
+		cc = buscaBank(numero);
 		return cc.getSaldo();
 	}
 	
 	
 	public boolean saca(String agencia, String numero, double valor) {
 		Bank cc = new Bank();
-		cc = buscaBank(agencia, numero);
-		
+		//cc = buscaBank(agencia, numero);
+		cc = buscaBank(numero);
+
 		if(valor > 0 && cc.getSaldo() >= valor && cc.getNumero() != "0") {
 			cc.setSaldo(cc.getSaldo() - valor);
 			System.out.printf("Saque de R$ %.2f em Agência: [%s], Conta: [%s] efetuado com sucesso!\n", valor, cc.getAgencia(), cc.getNumero());
@@ -73,6 +76,7 @@ public class BankDB {
 		}
 	}
 
+/*
 	public boolean transfere(String agOrigem, String numOrigem, String agDestino, String numDestino, double valor) {
 		
 		Bank ccOrig = new Bank();
@@ -101,7 +105,8 @@ public class BankDB {
 			return false;
 		}
 	}
-	
+*/
+
 	public String listarBancos() {
 		String str = "";
 		for(Bank cc : banco) {
@@ -112,7 +117,9 @@ public class BankDB {
 		}
 		return str;
 	}
-		
+
+
+/*
 	public Bank buscaBank(String agencia, String numero){
 		for(Bank cc : banco) {
 			if(cc.getAgencia().equalsIgnoreCase(agencia) && cc.getNumero().equalsIgnoreCase(numero)) {
@@ -125,4 +132,18 @@ public class BankDB {
 		return conta;
 	}	
 }
+*/
 
+
+	public Bank buscaBank(String numero){
+		for(Bank cc : banco) {
+			if(cc.getNumero().equalsIgnoreCase(numero)) {
+				return cc;
+			}
+		}
+		Bank conta = new Bank();
+		conta.setAgencia("0");
+		conta.setNumero("0");
+		return conta;
+	}	
+}
